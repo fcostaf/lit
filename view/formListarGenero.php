@@ -18,11 +18,11 @@ echo '<!DOCTYPE html>
                 </tr>';
         while($row=$res->fetch(PDO::FETCH_OBJ)){
             echo "<tr>
-                    <td>'$row->idGen'</td>
-                    <td>'$row->nomeGen'</td>
+                    <td>$row->idgenero</td>
+                    <td>$row->nome</td>
                     <td>
-                    <button onclick=\"location.href='../view/formGenero.php?op=Alterar&idGenero=".$row->idGen."';\">Alterar</button>
-                    <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='../controller/processaGenero.php?op=Excluir&idGenero=".$row->idGen."';}
+                    <button onclick=\"location.href='../view/formGenero.php?op=Alterar&idGenero=".$row->idgenero."';\">Alterar</button>
+                    <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='../controller/processaGenero.php?op=Excluir&idGenero=".$row->idgenero."';}
                     else{false;}\">Excluir</button>
                     </td>";
         }

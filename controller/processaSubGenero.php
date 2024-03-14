@@ -28,6 +28,6 @@ function excluir(){
 }
 
 function listar(){
-    include '../view/formListarAluno.php';
+    include '../view/formListarSubGenero.php';
 }
 ?>
