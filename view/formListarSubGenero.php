@@ -17,9 +17,13 @@ echo '<!DOCTYPE html>
                 <th>Nome</th>
                 </tr>';
         while($row=$res->fetch(PDO::FETCH_OBJ)){
+            include "../controller/GeneroController.php";
+            $resGen=GeneroController::resgataPorID($row->genero_idgenero);
+            $resGen=$resGen->fetch(PDO::FETCH_OBJ);
             echo "<tr>
                     <td>$row->idsubenero</td>
                     <td>$row->nome</td>
+                    <td>$resGen->nome</td>
                     <td>
                     <button onclick=\"location.href='../view/formSubGenero.php?op=Alterar&idSubGenero=".$row->idsubgenero."';\">Alterar</button>
                     <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='../controller/processaSubGenero.php?op=Excluir&idSubGenero=".$row->idsubgenero."';}

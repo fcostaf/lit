@@ -4,9 +4,16 @@ class SubGeneroDAO{
         include_once 'Conexao.php';
         $conex=new Conexao();
         $conex->fazConexao();
-        $sql="INSERT INTO subgenero (nome) VALUES (:nome)";
+        
+        $subGenString=$subgenero->getGen();
+        $sqlGen="SELECT idgenero FROM genero WHERE nome='$subGenString'";
+        $res=$conex->conn->query($sqlGen);
+        $idGen=$res->fetch(PDO::FETCH_OBJ);
+        
+        $sql="INSERT INTO subgenero (nome,genero_idgenero) VALUES (:nome,:gen)";
         $stmt=$conex->conn->prepare($sql);
         $stmt->bindValue(':nome',$subgenero->getNome());
+        $stmt->bindValue(':gen',$idGen->idgenero);
         $res=$stmt->execute();
         if($res){
             echo "<script>alert('Cadastro Realizado com sucesso');</script>";

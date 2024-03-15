@@ -14,9 +14,10 @@ switch($_REQUEST["op"]){
 
 function incluir(){
     $nome=$_POST["nome"];
+    $gen=$_POST['comboGenero'];
     include 'SubGeneroController.php';
     $contr=new SubGeneroController();
-    $contr->cadastrarSubGenero($nome);
+    $contr->cadastrarSubGenero($nome,$gen);
 }
 
 function alterar(){

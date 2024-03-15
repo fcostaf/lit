@@ -1,11 +1,13 @@
 <?php
 class SubGeneroModel{
     protected $nome;
+    protected $gen;
     protected $id;
 
-    public function __construct($id,$nome){
+    public function __construct($id,$nome,$gen){
         $this->id=$id;
         $this->nome=$nome;
+        $this->gen=$gen;
     }
 
     public function getID(){
@@ -16,8 +18,16 @@ class SubGeneroModel{
         return $this->nome;
     }
 
+    public function getGen(){
+        return $this->gen;
+    }
+
     public function setNome($nome){
         $this->nome=$nome;
+    }
+
+    public function setGen($gen){
+        $this->gen=$gen;
     }
 
     public function cadastrarSubGenero(SubGeneroModel $subgenero){

@@ -1,8 +1,8 @@
 <?php
 class SubGeneroController{
-    public static function cadastrarSubGenero($nome){
+    public static function cadastrarSubGenero($nome,$gen){
         include '../model/SubGeneroModel.php';
-        $subgenero=new SubGeneroModel(null,$nome);
+        $subgenero=new SubGeneroModel(null,$nome,$gen);
         $subgenero->cadastrarSubGenero($subgenero);
     }
 
