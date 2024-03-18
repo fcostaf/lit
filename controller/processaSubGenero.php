@@ -22,7 +22,7 @@ function incluir(){
 
 function alterar(){
     $nome=$_POST["nome"];
-    $id=$_POST["id"];
+    $id=$_POST["idSubGen"];
     $idGen==$_POST["comboGenero"];
     include 'SubGeneroController.php';
     $contr=new SubGeneroController();

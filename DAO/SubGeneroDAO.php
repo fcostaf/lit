@@ -21,7 +21,7 @@ class SubGeneroDAO{
         else{
             echo "<script>alert('Erro: Não foi possível realizar o cadastro');</script>";
         }
-        echo "<script>location.herf='../controller/processaSubGenero.php?op=Listar';</script>";
+        echo "<script>location.href='../controller/processaSubGenero.php?op=Listar';</script>";
     }
 
     public function listarSubGeneros(){
@@ -46,6 +46,10 @@ class SubGeneroDAO{
         $conex->fazConexao();
         $sql="UPDATE subgenero SET nome=:nome,genero_idgenero=:idGen WHERE idsubgenero=:id";
         $stmt=$conex->conn->prepare($sql);
+        echo "SUB GENERO :".$subgenero->getID()."<BR>";
+        echo "NOME :".$subgenero->getNome()."<BR>";
+        echo "ID GENERO :".$subgenero->getGen()."<BR>";
+
         $stmt->bindValue(':id',$subgenero->getID());
         $stmt->bindValue(':nome',$subgenero->getNome());
         $stmt->bindValue(':idGen',$subgenero->getGen());
@@ -56,7 +60,7 @@ class SubGeneroDAO{
         else{
             echo "<script>alert('Erro: Não foi possível alterar o cadastro');</script>";
         }
-        echo "<script>location.href='../controller/processaSubGenero.php?op=Listar';</script>";
+       // echo "<script>location.href='../controller/processaSubGenero.php?op=Listar';</script>";
     }
 
     public function excluirSubGenero($idSubGenero){
