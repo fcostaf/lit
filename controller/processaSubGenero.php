@@ -23,7 +23,12 @@ function incluir(){
 function alterar(){
     $nome=$_POST["nome"];
     $id=$_POST["idSubGen"];
-    $idGen==$_POST["comboGenero"];
+    $idGenero==$_POST["comboGenero"];
+
+    //include_once "../controller/GeneroController.php";
+    //$resGen=GeneroController::resgataPorIDSub($row->genero_idgenero);
+    //$resGen=$resGen->fetch(PDO::FETCH_OBJ);
+
     include 'SubGeneroController.php';
     $contr=new SubGeneroController();
     $contr->alterarSubGenero($id,$nome,$idGen);
