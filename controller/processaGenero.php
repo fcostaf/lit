@@ -37,6 +37,6 @@ function excluir(){
 }
 
 function listar(){
-    include '../view/formListarGenero.php';
+    include_once '../view/formListarGenero.php';
 }
 ?>

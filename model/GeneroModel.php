@@ -27,13 +27,19 @@ class GeneroModel{
     }
 
     public function listarGeneros(){
-        include '../dao/GeneroDAO.php';
+        include_once '../dao/GeneroDAO.php';
         $dao=new GeneroDAO(null);
         return $dao->listarGeneros();
     }
 
     public function resgataPorID($idGenero){
         include '../dao/GeneroDAO.php';
+        $model=new GeneroDAO(null);
+        return $model->resgataPorID($idGenero);
+    }
+
+    public function resgataPorIDSub($idGenero){
+        include_once '../dao/GeneroDAO.php';
         $model=new GeneroDAO(null);
         return $model->resgataPorID($idGenero);
     }

@@ -7,26 +7,26 @@ class SubGeneroController{
     }
 
     public static function listarSubGeneros(){
-        include '../model/SubGeneroModel.php';
-        $model=new SubGeneroModel(null,null);
+        include_once '../model/SubGeneroModel.php';
+        $model=new SubGeneroModel(null,null,null);
         return $model->listarSubGeneros();
     }
 
     public static function resgataPorID($idSubGenero){
-        include '../model/SubGeneroModel.php';
-        $model=new SubGeneroModel(null,null);
+        include_once '../model/SubGeneroModel.php';
+        $model=new SubGeneroModel(null,null,null);
         return $model->resgataPorID($idSubGenero);
     }
 
-    public static function alterarSubGenero($id,$nome){
+    public static function alterarSubGenero($id,$nome,$gen){
         include '../model/SubGeneroModel.php';
-        $subgenero=new SubGeneroModel($id,$nome);
+        $subgenero=new SubGeneroModel($id,$nome,$gen);
         $subgenero->alterarSubGenero($subgenero);
     }
 
     public static function excluirSubGenero($id){
         include '../model/SubGeneroModel.php';
-        $subgenero=new SubGeneroModel(null,null);
+        $subgenero=new SubGeneroModel(null,null,null);
         $subgenero->excluirSubGenero($id);
     }
 }

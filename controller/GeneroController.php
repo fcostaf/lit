@@ -7,7 +7,7 @@ class GeneroController{
     }
 
     public static function listarGeneros(){
-        include '../model/GeneroModel.php';
+        include_once '../model/GeneroModel.php';
         $model=new GeneroModel(null,null);
         return $model->listarGeneros();
     }
@@ -16,6 +16,12 @@ class GeneroController{
         include '../model/GeneroModel.php';
         $model=new GeneroModel(null,null);
         return $model->resgataPorID($idGenero);
+    }
+
+    public static function resgataPorIDSub($idGenero){
+        include_once '../model/GeneroModel.php';
+        $model=new GeneroModel(null,null);
+        return $model->resgataPorIDSub($idGenero);
     }
 
     public static function alterarGenero($id,$nome){

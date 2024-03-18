@@ -49,11 +49,15 @@ class SubGeneroModel{
     }
 
     public function alterarSubGenero(SubGeneroModel $subgenero){
-
+        include_once '../dao/SubGeneroDAO.php';
+        $genero=new SubGeneroDAO();
+        $genero->alterarSubGenero($this);
     }
 
     public function excluirSubGenero($idSubGenero){
-
+        include_once '../dao/SubGeneroDAO.php';
+        $genero=new SubGeneroDAO();
+        $genero->excluirSubGenero($idSubGenero);
     }
 }
 ?>

@@ -10,15 +10,17 @@ echo '<!DOCTYPE html>
     $operacao=$_REQUEST["op"];
     if($operacao=="Alterar"){
         include("../controller/SubGeneroController.php");
-        $res=GeneroController::resgataPorId($_REQUEST["idSubGenero"]);
+        $res=SubGeneroController::resgataPorId($_REQUEST["idSubGenero"]);
         $qtd=$res->rowCount();
         $row=$res->fetch(PDO::FETCH_OBJ);
         $nome=$row->nome;
+        $idGen=$row->genero_idgenero;
         $id=$row->idsubgenero;
         $operacao="Alterar";
     }
     else{
         $nome="";
+        $idGen="";
         $id="";
         $operacao="Incluir";
     }
@@ -34,7 +36,11 @@ echo '<!DOCTYPE html>
             <select name="comboGenero" id="comboGenero">
             <option value=""></option>';
             while($row=$res->fetch(PDO::FETCH_OBJ)){
+                if($row->idgenero==$idGen){
+                    echo "<option selected='selected' value=$row->nome>$row->nome</option>";
+                }else{
                 echo "<option value=$row->nome>$row->nome</option>";
+                }
             }
             print "</select>";
         }else{

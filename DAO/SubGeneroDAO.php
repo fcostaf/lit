@@ -41,11 +41,37 @@ class SubGeneroDAO{
     }
 
     public function alterarSubGenero(SubGeneroModel $subgenero){
-
+        include_once 'Conexao.php';
+        $conex=new Conexao();
+        $conex->fazConexao();
+        $sql="UPDATE subgenero SET nome=:nome,genero_idgenero=:idGen WHERE idsubgenero=:id";
+        $stmt=$conex->conn->prepare($sql);
+        $stmt->bindValue(':id',$subgenero->getID());
+        $stmt->bindValue(':nome',$subgenero->getNome());
+        $stmt->bindValue(':idGen',$subgenero->getGen());
+        $res=$stmt->execute();
+        if($res){
+            echo "<script>alert('Registro Alterado com sucesso');</script>";
+        }
+        else{
+            echo "<script>alert('Erro: Não foi possível alterar o cadastro');</script>";
+        }
+        echo "<script>location.href='../controller/processaSubGenero.php?op=Listar';</script>";
     }
 
     public function excluirSubGenero($idSubGenero){
-
+        include_once 'Conexao.php';
+        $conex=new Conexao();
+        $conex->fazConexao();
+        $sql="DELETE FROM subgenero WHERE idsubgenero='$idSubGenero'";
+        $res=$conex->conn->query($sql);
+        if($res){
+            echo "<script>alert('Exclusão realizada com sucesso!');</script>";
+        }
+        else{
+            echo "<script>alert('Não foi possível excluir o usuário!');</script>";
+        }
+        echo "<script>location.href='../controller/processaSubGenero.php?op=Listar';</script>";
     }
 }
 ?>

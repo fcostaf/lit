@@ -10,7 +10,7 @@ echo '<!DOCTYPE html>
     $operacao=$_REQUEST["op"];
     if($operacao=="Alterar"){
         include("../controller/GeneroController.php");
-        $res=GeneroController::resgataPorId($_REQUEST["id"]);
+        $res=GeneroController::resgataPorId($_REQUEST["idGenero"]);
         $qtd=$res->rowCount();
         $row=$res->fetch(PDO::FETCH_OBJ);
         $nome=$row->nome;

@@ -21,14 +21,22 @@ function incluir(){
 }
 
 function alterar(){
-
+    $nome=$_POST["nome"];
+    $id=$_POST["id"];
+    $idGen==$_POST["comboGenero"];
+    include 'SubGeneroController.php';
+    $contr=new SubGeneroController();
+    $contr->alterarSubGenero($id,$nome,$idGen);
 }
 
 function excluir(){
-
+    $id=$_REQUEST["idSubGenero"];
+    include 'SubGeneroController.php';
+    $contr=new SubGeneroController();
+    $contr->excluirSubGenero($id);
 }
 
 function listar(){
-    include '../view/formListarSubGenero.php';
+    include_once '../view/formListarSubGenero.php';
 }
 ?>

@@ -7,7 +7,7 @@ echo '<!DOCTYPE html>
     <title>Formulário Listar Subgêneros</title>
 </head>
 <body>';
-    include "../controller/SubGeneroController.php";
+    include_once "../controller/SubGeneroController.php";
     $res=SubGeneroController::listarSubGeneros();
     $qtd=$res->rowCount();
     if($qtd>0){
@@ -15,13 +15,14 @@ echo '<!DOCTYPE html>
                 <tr>
                 <th>#</th>
                 <th>Nome</th>
+                <th>Gênero</th>
                 </tr>';
         while($row=$res->fetch(PDO::FETCH_OBJ)){
-            include "../controller/GeneroController.php";
-            $resGen=GeneroController::resgataPorID($row->genero_idgenero);
+            include_once "../controller/GeneroController.php";
+            $resGen=GeneroController::resgataPorIDSub($row->genero_idgenero);
             $resGen=$resGen->fetch(PDO::FETCH_OBJ);
             echo "<tr>
-                    <td>$row->idsubenero</td>
+                    <td>$row->idsubgenero</td>
                     <td>$row->nome</td>
                     <td>$resGen->nome</td>
                     <td>
