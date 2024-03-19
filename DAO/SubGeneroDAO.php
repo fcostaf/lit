@@ -28,7 +28,7 @@ class SubGeneroDAO{
         include_once 'Conexao.php';
         $conex=new Conexao();
         $conex->fazConexao();
-        $sql="SELECT * FROM subgenero ORDER BY nome";
+        $sql="SELECT * FROM subgenero ORDER BY genero_idgenero";
         return $conex->conn->query($sql);
     }
 
@@ -44,15 +44,21 @@ class SubGeneroDAO{
         include_once 'Conexao.php';
         $conex=new Conexao();
         $conex->fazConexao();
+
+        $subGenString=$subgenero->getGen();
+        $sqlGen="SELECT idgenero FROM genero WHERE nome='$subGenString'";
+        $res=$conex->conn->query($sqlGen);
+        $idGen=$res->fetch(PDO::FETCH_OBJ);
+
         $sql="UPDATE subgenero SET nome=:nome,genero_idgenero=:idGen WHERE idsubgenero=:id";
         $stmt=$conex->conn->prepare($sql);
         echo "SUB GENERO :".$subgenero->getID()."<BR>";
         echo "NOME :".$subgenero->getNome()."<BR>";
-        echo "ID GENERO :".$subgenero->getGen()."<BR>";
+        echo "ID GENERO :".$idGen->idgenero."<BR>";
 
         $stmt->bindValue(':id',$subgenero->getID());
         $stmt->bindValue(':nome',$subgenero->getNome());
-        $stmt->bindValue(':idGen',$subgenero->getGen());
+        $stmt->bindValue(':idGen',$idGen->idgenero);
         $res=$stmt->execute();
         if($res){
             echo "<script>alert('Registro Alterado com sucesso');</script>";
@@ -60,7 +66,7 @@ class SubGeneroDAO{
         else{
             echo "<script>alert('Erro: Não foi possível alterar o cadastro');</script>";
         }
-       // echo "<script>location.href='../controller/processaSubGenero.php?op=Listar';</script>";
+       echo "<script>location.href='../controller/processaSubGenero.php?op=Listar';</script>";
     }
 
     public function excluirSubGenero($idSubGenero){

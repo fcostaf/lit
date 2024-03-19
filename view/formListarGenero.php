@@ -5,6 +5,7 @@ echo '<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário Listar Gêneros</title>
+    <link rel="stylesheet" href="../estilo.css">
 </head>
 <body>';
     include "../controller/GeneroController.php";
@@ -15,6 +16,7 @@ echo '<!DOCTYPE html>
                 <tr>
                 <th>#</th>
                 <th>Nome</th>
+                <th></th><th></th>
                 </tr>';
         while($row=$res->fetch(PDO::FETCH_OBJ)){
             echo "<tr>
@@ -34,6 +36,7 @@ echo '<!DOCTYPE html>
         echo "<p>Nenhum registro encontrado!</p>";
     }
 
-  echo "</body>
-</html>"
+  echo '<br><a href="../index.html">Voltar</a>
+</body>
+</html>'
 ?>

@@ -23,7 +23,7 @@ function incluir(){
 function alterar(){
     $nome=$_POST["nome"];
     $id=$_POST["idSubGen"];
-    $idGenero==$_POST["comboGenero"];
+    $idGen=$_POST["comboGenero"];
 
     //include_once "../controller/GeneroController.php";
     //$resGen=GeneroController::resgataPorIDSub($row->genero_idgenero);

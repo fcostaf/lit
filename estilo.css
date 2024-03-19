@@ -1,0 +1,32 @@
+body{
+    background-color: antiquewhite;
+    color: darkred;
+    padding-top: 20px;
+    text-align: center;
+
+}
+
+button{
+    background-color: darkslategrey;
+    color: antiquewhite;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+table{
+    background-color: cadetblue;
+    font-size: 20pt;
+}
+
+th{
+    background-color: darkred;
+    color: cadetblue;
+}
+
+td{
+    padding: 10px;
+}
+
+a{
+   color: cadetblue;
+   font-size: 15pt;
+}

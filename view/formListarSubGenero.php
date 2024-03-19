@@ -5,6 +5,7 @@ echo '<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário Listar Subgêneros</title>
+    <link rel="stylesheet" href="../estilo.css">
 </head>
 <body>';
     include_once "../controller/SubGeneroController.php";
@@ -39,6 +40,7 @@ echo '<!DOCTYPE html>
         echo "<p>Nenhum registro encontrado!</p>";
     }
 
-  echo "</body>
-</html>"
+  echo '<br><a href="../index.html">Voltar</a>
+  </body>
+</html>'
 ?>

@@ -5,6 +5,7 @@ echo '<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário Gênero</title>
+    <link rel="stylesheet" href="../estilo.css">
 </head>
 <body>';
     $operacao=$_REQUEST["op"];
@@ -16,6 +17,7 @@ echo '<!DOCTYPE html>
         $nome=$row->nome;
         $id=$row->idgenero;
         $operacao="Alterar";
+        echo "$nome";
     }
     else{
         $nome="";
@@ -25,11 +27,13 @@ echo '<!DOCTYPE html>
 
     echo '<form method="post" action="../controller/processaGenero.php">
         <label for="nome">Nome</label>
-        <input type="text" name="nome" value='.$nome.'><br>
+        <input type="text" name="nome" value="'.$nome.'"><br>
         <input type="hidden" name="id" value='.$id.'><br>
         <input type="hidden" name="op" value='.$operacao.'><br>
         <input type="submit" value='.$operacao.'>
         </form>
+        <br>
+        <a href="../index.html">Voltar</a>
 
 
 </body>
