@@ -12,11 +12,12 @@ echo '<!DOCTYPE html>
     $res=SubGeneroController::listarSubGeneros();
     $qtd=$res->rowCount();
     if($qtd>0){
-        echo '<table class="table table-hover table-striped table-bordered">
+        echo '<table>
                 <tr>
                 <th>#</th>
                 <th>Nome</th>
                 <th>Gênero</th>
+                <th></th><th></th>
                 </tr>';
         while($row=$res->fetch(PDO::FETCH_OBJ)){
             include_once "../controller/GeneroController.php";
@@ -24,9 +25,20 @@ echo '<!DOCTYPE html>
             $resGen=$resGen->fetch(PDO::FETCH_OBJ);
             echo "<tr>
                     <td>$row->idsubgenero</td>
-                    <td>$row->nome</td>
-                    <td>$resGen->nome</td>
-                    <td>
+                    <td>$row->nome</td>";
+                    if($resGen->nome=='Poesia'){
+                        echo "<td style='background-color:pink'>$resGen->nome</td>";
+                    }
+                    if($resGen->nome=='Ficção'){
+                        echo "<td style='background-color:lightblue'>$resGen->nome</td>";
+                    }
+                    if($resGen->nome=='não-Ficção'){
+                        echo "<td style='background-color:lightyellow'>$resGen->nome</td>";
+                    }
+                    if($resGen->nome=='Drama'){
+                        echo "<td style='background-color:lightgreen'>$resGen->nome</td>";
+                    }
+                    echo "<td>
                     <button onclick=\"location.href='../view/formSubGenero.php?op=Alterar&idSubGenero=".$row->idsubgenero."';\">Alterar</button>
                     <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='../controller/processaSubGenero.php?op=Excluir&idSubGenero=".$row->idsubgenero."';}
                     else{false;}\">Excluir</button>

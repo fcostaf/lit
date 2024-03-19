@@ -10,11 +10,17 @@ button{
     background-color: darkslategrey;
     color: antiquewhite;
     font-family: 'Courier New', Courier, monospace;
+    height: 40px;
+    width: 80px;
+    border-radius: 25%;
 }
 
 table{
     background-color: cadetblue;
+    color: white;
     font-size: 20pt;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 th{
@@ -29,4 +35,13 @@ td{
 a{
    color: cadetblue;
    font-size: 15pt;
+}
+
+input[type=submit]{
+    background-color: teal;
+    color: darkred;
+    height: 40px;
+    width: 60px;
+    border-radius: 25%;
+    font-weight: bold;
 }
